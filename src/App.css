@@ -1,0 +1,334 @@
+body {
+  margin: 0;
+  /* overflow-x: hidden; */
+}
+
+.app-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+  grid-template-rows: 0.3fr 0.5fr auto 0.3fr;
+  grid-template-areas:
+      'title title'
+      'tp-result egg-result'
+      'tp-container egg-container'
+      'social-media social-media'
+      'footer footer';
+}
+
+.title {
+  grid-area: 'title';
+  margin: 0 auto;
+  width: 100%;
+  height: 220px;
+  /* background-image: linear-gradient(rgb(174, 219, 244), rgb(6, 107, 162)); */
+  background-image: url("./bedroom.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  /* opacity: .9 */
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  color: white;
+  padding-top: 3.5em;
+  font-size: 2em;
+  grid-column: 1/3;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.logo{
+  font-size: 18px;
+  position: absolute;
+  top: 13px;
+  left: 15px;
+}
+
+.left-nav-text{
+  width: 300px;
+  display: inline-block;
+  word-spacing: 20px;
+  margin-right: 20px;
+  font-family: Verdana, Tahoma, sans-serif
+}
+.left-nav{
+  font-size: 16px;
+  position: absolute;
+  top: 13px;
+  right: 15px;
+}
+
+.sub-title {
+  font-size: 20px;
+  font-style: italic;
+}
+
+.footer{
+  grid-column: 1/3;
+  text-align: center;
+  margin-top: 3em;
+}
+
+/* .title:after {
+  content: '';
+  position: absolute;
+  height: 220px;
+  left: -10%;
+  right: -10%;
+  border-radius: 50%;
+  bottom: -3em;
+  background: #fff;
+} */
+
+
+.egg-result, .tp-result {
+  text-align: center;
+  padding-top: 1em;
+  font-size: 2em;
+  font-family: Verdana, Tahoma, sans-serif;
+  background-color: rgb(207, 242, 254);
+}
+
+.egg-result{
+  grid-area: 'egg-result';
+}
+
+.tp-result{
+  grid-area: 'tp-result';
+}
+
+
+/* slider */
+
+
+input[type=range] {
+	-webkit-appearance: none;
+	margin: 20px 0;
+  width: 100%;
+}
+input[type=range]:focus {
+	outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+	width: 100%;
+	height: 4px;
+	cursor: pointer;
+	animate: 0.2s;
+	background: #03a9f4;
+	border-radius: 25px;
+}
+input[type=range]::-webkit-slider-thumb {
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+	background: #fff;
+	box-shadow: 0 0 4px 0 rgba(0,0,0, 1);
+	cursor: pointer;
+	-webkit-appearance: none;
+	margin-top: -8px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+	background: #03a9f4;
+}
+
+.label{
+  font: 18px Arial;
+}
+.range-wrap{
+	width: 500px;
+  position: relative;
+  margin-top: 30px;
+  display: inline-block;
+}
+.range-value{
+	position: absolute;
+	top: -50%;
+}
+.range-value span{
+	width: 30px;
+	height: 24px;
+	line-height: 24px;
+	text-align: center;
+	background: #03a9f4;
+	color: #fff;
+	font-size: 18px;
+	display: block;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0);
+  border-radius: 6px;
+}
+.range-value span:before{
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-top: 10px solid #03a9f4;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	margin-top: -1px;
+}
+
+.slider-container{
+  /* min-height: 100vh;
+	padding: 0 10vh;
+	margin: 0; */
+	position: relative;
+	/* display: flex; */
+  /* height: 100px; */
+  /* margin-left: 5em; */
+  /* margin-left: 15%; */
+  /* margin-right: 15%; */
+  /* width: 100%; */
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+
+
+.header{
+  text-align: center;
+  font: 30px Arial;
+  margin: 1.5em;
+  height: 100px
+}
+
+.egg-container, .tp-container{
+  /* background-color: rgb(237, 237, 237); */
+  /* padding-bottom: 8em; 
+  padding-top: 2em; */
+  /* box-sizing: border-box; */
+  min-height: 40em;
+  height: auto;
+  position: relative;
+}
+
+.tp-container {
+  /* background-image: url("./toiletpaperpic.png");
+  background-repeat: no-repeat;
+  background-size: 40em; */
+}
+
+.tp-container::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 2em;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.2;
+    background-image: url('./toiletpaperpic.png');
+    background-repeat: no-repeat;
+    background-position: 60% 0;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: contain;
+}
+
+.egg-container::after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 1em;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.2;
+  background-image: url('./egg.png');
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: contain;
+}
+
+a {
+  font-size: 20px;
+  text-decoration: none;
+  color: rgb(100, 173, 198);
+}
+
+a:hover{
+  font-weight: bold;
+  color: rgb(0, 63, 139);
+}
+
+img {
+  width: 100px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.social-media {
+  grid-column: 1/3;
+  background-color: rgba(124, 187, 255, 0.899);
+  height: 200px;
+  text-align: center;
+  padding-top: 3em;
+  box-sizing: border-box;
+}
+
+
+.button-advanced {
+  color: white;
+  background-color: rgb(125, 125, 125);
+  margin-top: 5%;
+  margin-left: 15%;
+  font-size: 16px;
+  padding: .7em;
+  border-radius: 10px;
+  outline: none;
+}
+
+.button-advanced:hover {
+  background-color: rgb(62, 60, 60)
+}
+
+.advanced-options {
+  border: 1px solid rgb(111, 109, 109);
+  height: 400px;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-radius: 5px;
+  background-color: rgb(232, 232, 232);
+  margin-top: -1px;
+  padding-top: 2em;
+  padding-bottom: 1.5em;
+}
+
+.advanced-options .arrow-button{
+  background-color: rgb(232, 232, 232);
+}
+
+.advanced-options .slider-container{
+  padding-left: 5%;
+  padding-right: 0%;
+}
+
+.arrow-button {
+  display: inline-block;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  line-height: 24px;
+  vertical-align: -5px;
+  color: rgb(69, 157, 211);
+}
+
+.arrow-button:hover{
+  color: rgb(19, 72, 105);
+}
+
+
+/* @media (max-width: 700px) {
+
+} */
