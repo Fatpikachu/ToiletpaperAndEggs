@@ -5,15 +5,18 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-brands-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "jquery": "^3.4.1",
+    "assert": "^2.0.0",
+    "latest-version": "^5.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "^3.4.1",
+    "react-share": "^4.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -35,5 +38,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "fibers": "^4.0.2",
+    "node-sass": "^4.13.1",
+    "sass": "^1.26.3",
+    "typescript": "^3.8.3"
   }
 }
