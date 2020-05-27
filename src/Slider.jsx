@@ -20,16 +20,16 @@ class Slider extends Component {
     return (
       <div className='slider-container'>
         <div className='label'>{label}</div>
-        <button className='arrow-button' onClick={(e)=>this.props.handleChange(e, name, -1, min, max)}><FontAwesomeIcon icon={faArrowAltCircleLeft}/></button>
+        <div className='arrow-button' onClick={(e)=>this.props.handleChange(e, name, -1, min, max)}><FontAwesomeIcon icon={faArrowAltCircleLeft}/></div>
         <div className="range-wrap">
-        <div className="range-value" id="rangeV" ref={this.rangeV}
-        style={{left: `calc(${newValue}% + (${newPosition}px))`}}>
-          <span>{value}</span>
+          <div className="range-value" id="rangeV" ref={this.rangeV}
+          style={{left: `calc(${newValue}% + (${newPosition}px))`}}>
+            <span>{value}</span>
+          </div>
+          <input id="range" ref={this.range} onChange={(e)=>this.props.handleChange(e, name)} 
+            type="range" min={min} max={max} value={value} step="1"/>
         </div>
-        <input id="range" ref={this.range} onChange={(e)=>this.props.handleChange(e, name)} 
-          type="range" min={min} max={max} value={value} step="1"/>
-        </div>
-        <button className='arrow-button' onClick={(e)=>this.props.handleChange(e, name, 1, min, max)}><FontAwesomeIcon icon={faArrowAltCircleRight}/></button>
+        <div className='arrow-button' onClick={(e)=>this.props.handleChange(e, name, 1, min, max)}><FontAwesomeIcon icon={faArrowAltCircleRight}/></div>
       </div>
     )
   }

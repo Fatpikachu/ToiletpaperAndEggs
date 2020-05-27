@@ -3,7 +3,8 @@ import ToiletPaper from './ToiletPaper';
 import Egg from './Egg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faPooStorm, faBars} from '@fortawesome/free-solid-svg-icons';
-import { faFacebook } from '@fortawesome/free-brands-svg-icons'
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+import $ from 'jquery';
 
 import {
   FacebookShareButton,
@@ -26,13 +27,13 @@ import {
 
 import './App.css';
 
-
 class App extends Component {
   constructor() {
     super();
     this.state = {
       tpResult: 0,
       eggResult: 0,
+      hideNav: false,
     };
   }
   calcTp = (rolls,
@@ -55,24 +56,39 @@ class App extends Component {
       }
   }
 
+  componentDidMount(){
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = (event) => {
+    if (window.scrollY > 318) {
+        this.setState({hideNav: true});
+    }
+    else {
+        this.setState({hideNav: false});
+    }
+  }
+
   render(){
     let {tpResult, eggResult} = this.state;
     return (
     <React.Fragment>
       <div className='app-container'>
         <div className='title-container'>
-          <header>
-            <div className='logo'><FontAwesomeIcon icon={faPooStorm}/>&nbsp;&nbsp;FatPikachu</div>
-            <nav className='left-nav'>
+            <nav className='main-nav' style={{position: this.state.hideNav ? 'absolute' : 'fixed'}}>
               <ul className='nav-links'>
+                <li><div className='logo'><FontAwesomeIcon icon={faPooStorm}/>&nbsp;&nbsp;FatPikachu</div></li>
                 <li><a href='#'>Random</a></li>
                 <li><a href='#'>Text</a></li>
                 <li><a href='#'>Looks</a></li>
                 <li><a href='#'>Cool</a></li>
+                <li><a className='menu'><FontAwesomeIcon icon={faBars}/></a></li>
               </ul>
-            <a className='menu'><FontAwesomeIcon icon={faBars}/></a>
             </nav>
-          </header>
           <div className='title'>
             How much toilet paper and eggs to survive quarantine?
             <br/><p className='sub-title'>Lets calculate it</p>
